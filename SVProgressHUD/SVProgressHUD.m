@@ -1250,10 +1250,13 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
 - (UIView*)hudView {
     if(!_hudView) {
         _hudView = [[UIView alloc] initWithFrame:CGRectZero];
-        _hudView.layer.masksToBounds = YES;
         _hudView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin;
+        _hudView.layer.masksToBounds = NO;
+        _hudView.layer.shadowColor = [UIColor blackColor].CGColor;
+        _hudView.layer.shadowOpacity = 0.4;
+        _hudView.layer.shadowOffset = CGSizeZero;
     }
-    
+
     // Update styling
     _hudView.layer.cornerRadius = self.cornerRadius;
     _hudView.backgroundColor = self.backgroundColorForStyle;
